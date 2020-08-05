@@ -1,0 +1,14 @@
+description "Upstart Job for the <%= @name %> service"
+
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on shutdown
+
+chdir <%= @chdir %>
+
+<% @environment.each do |key, val| %>
+env <%= key %>=<%= val %>
+<% end -%>
+
+respawn
+
+exec <%= @cmd %>
