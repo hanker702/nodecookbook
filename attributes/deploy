@@ -1,0 +1,2 @@
+default['opsworks-node-app']['basedir'] = '/opt'
+default['opsworks-node-app']['run-cmd'] = 'npm start'
